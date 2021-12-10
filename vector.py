@@ -38,10 +38,7 @@ class Vector2D:
 
     def colinearite(self,t):
         """verification de la colinéarité"""
-        if((self.__x*t.y-self.__y*t.x)==0):
-            print("Les vecteurs sont colinéaires")
-        else:
-            print("Les vecteurs ne sont pas colinéaires")
+        return (self.__x*t.y-self.__y*t.x)==0
 
     def unitaire(self):
         """verification du caractère unitaire"""
