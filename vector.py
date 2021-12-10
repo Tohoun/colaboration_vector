@@ -18,34 +18,35 @@ class Vector2D:
     def y(self,new_y):
         self.__y = new_y
 
-    # Methode pour calculer la norme
-    def norme(self):
+    def norme2(self):
+        """Methode pour calculer la norme"""
         return sqrt(self.__x**2+self.__y**2) 
 
-    # Methode pour faire l'adition
     def addition(self,t):
+        """Methode effectuant l'addition"""
         self.__x += t.x
         self.__y += t.y 
 
-    # Methode pour faire une soustraction
     def soustraction(self,t):
+        """Methode effectuant la soustraction"""
         self.__x -= t.x
         self.__y -= t.y
 
-    # Methode pour faire le produit scalaire
     def produit_scalaire(self,t):
+        """Methode effectuant le produit scalaire"""
         return self.__x * t.x + self.__y * t.y 
 
-    # Methode pour verifier la colinearité entre deux vecteurs
     def colinearite(self,t):
-        if((self.__x*t.y-self.y*t.x)==0):
-            print("ils sont colinéaires")
-        else:
-            print("Ils sont pas colinéaires")
+        """verification de la colinéarité"""
+        return self.produit_scalaire(t)==0
+
+    def unitaire(self):
+        """verification du caractère unitaire"""
+        return self.norme2()==1
 
 
 v1 = Vector2D(2,5)
-print(v1.norme())
+print(v1.norme2())
 
 v2 = Vector2D(5,2)
 v1.addition(v2)
@@ -55,4 +56,5 @@ print(v1.x, v1.y, sep ='\n')
 v1.soustraction(v2)
 print(v1.x, v1.y, sep ='\n')
 
-v1.colinearite(v2)
+print(v1.colinearite(v2))
+print(v1.unitaire())
